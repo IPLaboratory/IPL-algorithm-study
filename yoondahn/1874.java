@@ -15,19 +15,19 @@ public class Main {
         for (int i = 0; i < n; i++) {
             int num = Integer.parseInt(br.readLine());
 
-            // 현재 숫자보다 작은 숫자들을 스택에 추가 (push)
+            // 주어진 숫자보다 작은 숫자들을 스택에 추가 (push)
             if (current <= num) {
                 while (current <= num) {
                     stack.push(current++);
                     sb.append("+").append("\n");
                 }
             }
-            // 스택의 top이 현재 숫자와 다르면 종료
+            // 스택의 top이 주어진 숫자와 다르면 종료
             if (stack.peek() != num) {
                 System.out.print("NO");
                 return; // 프로그램 종료
             }
-            // 현재 숫자와 입력받은 숫자가 일치하면 스택에서 삭제 (pop)
+            // 주어진 숫자와 일치하면 스택에서 삭제 (pop)
             stack.pop();
             sb.append("-").append("\n");
         }
