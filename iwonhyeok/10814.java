@@ -17,7 +17,7 @@ class Member {
     }
 }
 
-public class 나이순_정렬 {
+public class 10814 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
