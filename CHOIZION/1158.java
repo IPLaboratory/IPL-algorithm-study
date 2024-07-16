@@ -1,48 +1,39 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static StringTokenizer st;
-    static StringBuilder sb = new StringBuilder();
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringBuffer sb = new StringBuffer();
 
-    public static void main(String[] args) throws Exception {
-        st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());	// 사람
+		int K = Integer.parseInt(st.nextToken());	// 제거할 사람
+		Queue<Integer> queue = new LinkedList<>();
+		int[] removeArr = new int[N];
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken()) - 1;
+		for (int i = 0; i < N; i++) {	// 사람번호 queue에 추가
+			queue.add(i+1);
+		}
 
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 1; i <= N; i++) {
-            list.add(i);
-        }
-
-        sb.append("<");
-
-        int idx = K;
-
-        while (list.size() != 1) {
-            sb.append(list.get(idx));
-            sb.append(", ");
-
-            list.remove(idx);
-
-            idx += K;
-
-            if (idx >= list.size()) {
-                idx %= list.size();
-            }
-        }
-
-        sb.append(list.get(0));
-        sb.append(">");
-
-        System.out.println(sb);
-    }
+		int front = 0;
+		for (int i = 0; i < N; i++) {
+			for (int j = 1; j < K; j++) {	// front 증가
+				front++;
+			}
+			while (front > queue.size()-1) {	// front가 size보다 클 경우
+				front = front-queue.size();		// front에서 size를 빼줘야 함
+			}
+			removeArr[i] = ((LinkedList<Integer>) queue).get(front);	// 사람한 사람 배열에 추가
+			((LinkedList<Integer>) queue).remove(front);	// 사람 제거
+		}
+		System.out.println(Arrays.toString(removeArr)
+				.replace("[", "<")
+				.replace("]", ">"));
+	}
 }
