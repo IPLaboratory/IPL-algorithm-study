@@ -1,11 +1,8 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.ListIterator;
 import java.util.StringTokenizer;
 
 public class j_15651 {
     static int[] output;
-    static int[] arr;
     static BufferedWriter bw;
 
     public static void main(String[] args) throws IOException {
@@ -14,7 +11,6 @@ public class j_15651 {
         bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(st.nextToken()); //4
         int M = Integer.parseInt(st.nextToken()); //2
-        arr = new int[N];
         output = new int[M];
 
         repeatCombination(0,N,M);
