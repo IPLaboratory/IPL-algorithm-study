@@ -22,6 +22,7 @@ public class Main {
     }
 
     static void backTracking(int row) {
+        // 재귀함수 종료 조건
         if (row == m) {     // 수열의 길이와 같아지면
             for (int i = 0; i < m; i++) {
                 sb.append(list[i]).append(" "); // 수열 출력
