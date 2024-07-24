@@ -10,10 +10,9 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        // 첫 번째 줄 입력받기
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken()); // 연병장의 크기 N
+        int M = Integer.parseInt(st.nextToken()); // 조교 수 M
 
         // 초기 높이 배열 입력받기
         int[] heights = new int[N + 1];
