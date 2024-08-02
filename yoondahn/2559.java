@@ -15,13 +15,13 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 1; i <= n; i++) {
             temp[i] = Integer.parseInt(st.nextToken());
-            acc[i] = acc[i-1] + temp[i];
+            acc[i] = acc[i-1] + temp[i];    // 전까지의 누적 합 + 자기자신 값
         }
 
         int max = Integer.MIN_VALUE;    // 온도합의 최대
         int sum = 0;       // 현재 온도합
         for (int i = 0; i <= n-k; i++) {
-            sum = acc[i+k] - acc[i];
+            sum = acc[i+k] - acc[i];    // 연속적인 날짜까지의 온도합 - 해당하지 않는 날짜의 온도
             max = Math.max(max, sum);   // 최댓값 비교
         }
         System.out.println(max);
