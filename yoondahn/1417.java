@@ -26,7 +26,7 @@ public class Main {
             highest--; // 최다 득표수 -1
             pqueue.add(highest);
             first++;    // 후보 1번 득표수 +1
-            money++;    // 매수인원 +1
+            money++;    // 매수 인원 +1
         }
         System.out.println(money);
     }
